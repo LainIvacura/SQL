@@ -1,0 +1,84 @@
+https://www.youtube.com/watch?v=eyWGkfBYmIY&list=PLtPJ9lKvJ4oh5SdmGVusIVDPcELrJ2bsT&index=6
+------------------------------------------------------
+DDL - язык описания данных
+DML - язык монипулирования данных
+DCL - язык управление доступом данных
+-------------------------------------------------------
+
+SELECT * FROM таблица - вывести все данные из таблицы 
+SELECT DISTINCT(столбец) FROM таблица - уникальные строки
+SELECT DISTINCT(столбец) FROM таблица LIMIT 10 - выведит 10 уникальных строк
+SELECT * FROM таблица WHERE столбец='пол'
+
+between - значения находятся в указанном диапазоне
+in значение входит в список
+like проверка строки (поиск%)
+
+----------ФИЛЬТРАЦИЯ-------------------
+SELECT * FROM таблица WHERE столбец BETWEEN 2000 AND 2005 (найдет промежутки)
+SELECT * FROM таблица WHERE столбец IN ('яблок','огурц','жвака') выберет все значения с указанным списком
+SELECT * FROM таблица WHERE столбец LIKE '%опа'
+SELECT * FROM таблица WHERE столбец LIKE 'жоп%'
+SELECT * FROM таблица WHERE столбец LIKE '%оп%'
+
+SELECT * FROM таблица WHERE столбец1='пол' AND столбец2='name' выполняется 2 условия
+SELECT * FROM таблица WHERE столбец1='пол' OR столбец2='name' выполняется одно из условий
+SELECT * FROM таблица WHERE столбец1 NOT in ('яблок','огурц','жвака') ВСЕ ЧТО НЕ ВХОДТ В СПИСОК
+SELECT * FROM таблица WHERE столбец NOT BETWEEN 2000 AND 2005
+SELECT * FROM таблица WHERE столбец NOT LIKE '%опа'
+
+________ СОРТИРОВКА____________________
+
+SELECT * FROM таблица ORDER BY test ASC - СОртировка по столбцу test
+SELECT * FROM таблица ORDER BY test DESC - сортировка по убыванию
+
+SELECT * FROM таблица WHERE столбец1 ="bad" ORDER BY столбец2 DESC 
+
+SELECT * FROM таблица WHERE столбец1 ="bad" AND столбец2 ="lolo" ORDER BY столбец3 DESC LIMIT 5 
+
+сортировка по нескольким столбцам 
+SELECT * FROM таблица WHERE столбец1 ="bad" ORDER BY столбец2, столбец3 
+
+_________СОЗДАНИЕ ТАБЛИЦ_______________
+
+CREATE TABLE название(id INT PRIMARY KEY, 
+					name VARCHAR(255),
+					align VARCHAR(255), test VARCHAR(255));
+
+describe таблица  - просмотр сведений о таблице					
+drop table таблица - удаление таблицы
+
+СКРИПТ СОЗДАНИЯ ТАБЛИЦЫ 
+
+-- создаем таблицу супергероев
+DROP TABLE IF EXIST superheroi; -- удаляет таблицу если она уже существует
+CREATE TABLE superheroi(id INT PRIMARY KEY, 
+					name VARCHAR(255),
+					align VARCHAR(255), test VARCHAR(255));
+
+ИЗМЕНЕНИЯ ТАБЛИЦЫ 
+
+ALTER TABLE таблица ADD COLUMN столбец BOOLEAN; -   добавление столбца с типом BOOLEAN
+ALTER TABLE таблица ADD COLUMN столбец TIMESTAMP;   добавление столбца с типом TIMESTAMP(ДАТА И ВРЕМЯ)
+ALTER TABLE таблица DROP COLUMN столбец; 			удаление столбца
+ALTER TABLE таблица RENAME COLUMN столбец TO столбец_тест; - переименовать столбец 
+ALTER TABLE таблица RENAME TO таблица_переименованая	- переименовать таблицу 
+
+---------------ВСТАВКА И ИЗМЕННЕИЕ ДАННЫХ___________________
+
+INSER INTO таблица (name, age, titi) VALUES ('Masha', 23, 'big') - ВСТАВСКА ДАННЫХ___________________
+
+UPDATE таблица SET name='Katy', age=25, titi='smal' WHERE id =1 - измененеие строки 
+UPDATE таблица SET gender='Man' WHERE gender='male' -измененеие строки
+
+DELETE FROM таблица where id=2           - удаление  стоки 
+DELETE FROM таблица where gender='girl'  - удалит все стрки с полом girl 
+DELETE FROM таблица						 - удалит все строки 
+
+
+--------------- Агрегатнын функции ----------------------------
+
+			
+					
+
+
